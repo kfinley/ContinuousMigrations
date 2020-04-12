@@ -1,0 +1,32 @@
+version: '3.4'
+
+services:
+  
+  MySql:
+    container_name: ContinuousMigrations-MySql
+    image: "mysql:5.7"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./sample/Infrastructure/mysql/my.cnf:/etc/my.cnf
+    environment:
+      MYSQL_ROOT_PASSWORD: P@s5w0rd5Ar3G0OD!
+    
+  Web:
+    image: web
+    container_name: ContinuousMigrations-Web_Debug
+    build:
+      args:
+        buildconfig: Debug
+      context: .
+      dockerfile: sample/Web/Dockerfile
+    ports:
+      - 8080:8080
+    depends_on: 
+      - MySql
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+    command: sh -c "dockerize -wait tcp://MySql:3306 -timeout 500s -wait-retry-interval 3s dotnet Web.dll"
+    volumes:
+      - ./vsdbg:/vsdbg

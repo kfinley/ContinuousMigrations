@@ -1,0 +1,74 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "build",
+                "sample/Web/Web.csproj",
+                "-c=Debug",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "compose-up",
+            "command": "docker-compose",
+            "type": "shell",
+            "args": [
+                "-f",
+                "docker-compose.debug.yml",
+                "up",
+                "-d",
+                "--build"
+            ],
+            "group": "none",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "compose-down",
+            "command": "docker-compose",
+            "type": "shell",
+            "args": [
+                "-f",
+                "docker-compose.debug.yml",
+                "down"
+            ],
+            "group": "none",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "docker-rmi",
+            "command": "docker",
+            "type": "shell",
+            "args": [
+                "rmi",
+                "$(docker",
+                "images",
+                "-f",
+                "dangling=true",
+                "-q)"
+            ],
+            "group": "none",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}

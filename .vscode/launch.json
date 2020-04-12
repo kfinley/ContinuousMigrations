@@ -1,0 +1,48 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Attach to Web (Docker)",
+            "type": "coreclr",
+            "request": "attach",
+            "sourceFileMap": {
+                "/src": "${workspaceFolder}",
+            },
+            "processId": "${command:pickRemoteProcess}",
+            "pipeTransport": {
+                "debuggerPath": "/vsdbg/vsdbg",
+                "pipeProgram": "docker",
+                "pipeCwd": "${workspaceFolder}/sample/Web",
+                "quoteArgs": false,
+                "pipeArgs": [
+                    "exec",
+                    "-i",
+                    "ContinuousMigrations-Web_Debug"
+                ]
+            }
+        },
+        {
+            "name": "Launch Web (Local)",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/sample/Web/bin/Debug/netcoreapp3.1/Web.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/sample/Web",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "^\\s*Now listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_URLS": "http://localhost:8080",
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/sample/Web/Views"
+            }
+        }
+    ]
+}
