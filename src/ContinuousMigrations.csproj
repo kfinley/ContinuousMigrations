@@ -1,7 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <Description>Entity Framework Continuous Migrations is an EF Core extension for conditionally applying pending migrations to a database at runtime using application configuration settings.</Description>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <PackageId>EFContinuousMigrations</PackageId>
+    <Title>Continuous Migrations</Title>
+    <Copyright>© 2020</Copyright>
+    <PackageTags>"Entity Framework", "DotNet Core", "entity-framework-core"</PackageTags>
+    <Version>1.0.0</Version>
+    <Authors>Kyle Finley</Authors>
+    <PackageProjectUrl>https://github.com/kfinley/ContinuousMigrations</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/kfinley/ContinuousMigrations</RepositoryUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,4 +23,10 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.2" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="README.md" />
+    <None Include="../LICENSE.txt" Pack="true" PackagePath="LICENSE.txt" />
+  </ItemGroup>
+
 </Project>
