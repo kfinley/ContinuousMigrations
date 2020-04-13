@@ -10,7 +10,9 @@ RUN if [ "${buildconfig}" = "Debug" ]; then \
         wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz && \
         tar -C /usr/local/bin -xzvf dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz && \
         rm dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz; \
-        apt-get update && \
+        # To skip downloading the command line debugger run the following and uncomment the volume in docker-compose.debug.yml
+        # curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -v latest -l ~/vsdbg-linux-64 -r linux-64
+        apt-get update; \
         apt-get install -y --no-install-recommends apt-utils && \
         apt-get install curl unzip -y && \
         curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -v latest -l /vsdbg; \

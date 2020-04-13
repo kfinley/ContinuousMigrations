@@ -5,13 +5,11 @@ This folder includes a sample ASP.NET Core application which is configured to us
 ### Requirements
 
 - Docker
-- VSDbg
+- VSDbg (optional)
 
-  The Docker application expects VSDbg to be installed in the root of the EF Continusous Migrations project. It can be downloaded using the following command: 
+  To reduce build time you can download VSDbg and mount the folder as a volume in the Web container. Edit the Web/Dockerfile and docker-compose.debug.yml files for this. The VSDbdg version used for the Docker container can be downloaded using the following command: 
   
-  `curl -sSL https://aka.ms/getvsdbgsh | /bin/sh /dev/stdin -v latest -l /vsdbg`
-  
-  Optionally VSDbg can be installed in the applicaiton Docker image. See the Web/Dockerfile for more details.
+  `curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -v latest -l ~/vsdbg-linux-64 -r linux-64`
 
 ### Running the application
 
