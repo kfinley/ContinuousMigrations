@@ -28,5 +28,5 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:8080
     command: sh -c "dockerize -wait tcp://MySql:3306 -timeout 500s -wait-retry-interval 3s dotnet Web.dll"
-    volumes:
-      - ./vsdbg:/vsdbg
+    # volumes:
+      # - ./vsdbg:/vsdbg

@@ -22,7 +22,8 @@
                     "-i",
                     "ContinuousMigrations-Web_Debug"
                 ]
-            }
+            },
+            "preLaunchTask": "browse-web"
         },
         {
             "name": "Launch Web (Local)",

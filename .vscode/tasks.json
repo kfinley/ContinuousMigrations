@@ -69,6 +69,19 @@
                 "reveal": "silent"
             },
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "browse-web",
+            "command": "open",
+            "type": "shell",
+            "args": [
+                "http://localhost:8080"
+            ],
+            "group": "none",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": "$msCompile"
         }
     ]
 }
