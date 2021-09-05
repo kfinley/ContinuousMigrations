@@ -7,10 +7,9 @@
     <Title>Continuous Migrations</Title>
     <Copyright>© 2020</Copyright>
     <PackageTags>"Entity Framework", "DotNet Core", "entity-framework-core"</PackageTags>
-    <Version>5.0.7</Version>
+    <Version>3.1.18</Version>
     <Authors>Kyle Finley</Authors>
     <PackageProjectUrl>https://github.com/kfinley/ContinuousMigrations</PackageProjectUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/kfinley/ContinuousMigrations</RepositoryUrl>
@@ -18,16 +17,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.7" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.7" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.18" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.18" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.18" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.18" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="../README.md" Pack="true" PackagePath="." />
-    <None Include="../LICENSE.txt" Pack="true" PackagePath="." />
+    <None Include="../README.md" Pack="true" PackagePath="README.md" />
+    <None Include="../LICENSE.txt" Pack="true" PackagePath="LICENSE.txt" />
   </ItemGroup>
 
 </Project>
