@@ -7,7 +7,7 @@
     <Title>Continuous Migrations</Title>
     <Copyright>© 2020</Copyright>
     <PackageTags>"Entity Framework", "DotNet Core", "entity-framework-core"</PackageTags>
-    <Version>5.0.8</Version>
+    <Version>5.0.9</Version>
     <Authors>Kyle Finley</Authors>
     <PackageProjectUrl>https://github.com/kfinley/ContinuousMigrations</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -18,8 +18,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.8" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.9" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
