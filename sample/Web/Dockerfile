@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS base
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS base
 ARG buildconfig
 ENV DOCKERIZE_VERSION v0.6.1
 EXPOSE 80
@@ -18,7 +18,7 @@ RUN if [ "${buildconfig}" = "Debug" ]; then \
         curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -v latest -l /vsdbg; \
     fi
 
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS publish
+FROM base AS publish
 ARG buildconfig
 WORKDIR /src
 
@@ -38,4 +38,3 @@ WORKDIR /app
 COPY --from=publish /publish .
 
 CMD ["dotnet", "Web.dll"]
-#ENTRYPOINT ["dotnet", "Web.dll"]

@@ -26,7 +26,9 @@ namespace Web {
                 .AddOptions()
                 .AddDbContext<BlogContext>(options =>
                     options
-                        .UseMySql(Configuration.GetConnectionString(InDocker ? "DockerConnection" : "DefaultConnection"), x => x.MigrationsAssembly("Web"))
+                      .UseMySql(Configuration.GetConnectionString(InDocker ? "DockerConnection" : "DefaultConnection"),
+                           new MySqlServerVersion(new Version(5, 7)),
+                           x => x.MigrationsAssembly("Web"))
                 )
                 .AddContinuousMigrations<BlogContext>()
                 .AddControllersWithViews();

@@ -1,7 +1,7 @@
 version: '3.4'
 
 services:
-  
+
   MySql:
     container_name: ContinuousMigrations-MySql
     image: "mysql:5.7"
@@ -11,7 +11,7 @@ services:
       - ./sample/Infrastructure/mysql/my.cnf:/etc/my.cnf
     environment:
       MYSQL_ROOT_PASSWORD: P@s5w0rd5Ar3G0OD!
-    
+
   Web:
     image: web
     container_name: ContinuousMigrations-Web_Debug
@@ -22,7 +22,7 @@ services:
       dockerfile: sample/Web/Dockerfile
     ports:
       - 8080:8080
-    depends_on: 
+    depends_on:
       - MySql
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
