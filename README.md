@@ -10,15 +10,17 @@ You want to ensure the latest EF migrations have been applied during application
 
 ### How do I use it?
 
-EF Continuous Migrations is added to an application using the `AddContinuousMigrations<T>` `IServicesCollection` extension method. 
+EF Continuous Migrations is added to an application using the `AddContinuousMigrations<T>` `IServicesCollection` extension method.
 
 The following example shows how this is done for an ASP.NET Core application in the `Startup.ConfigureServices` method for an application using a MySql database.
 
 ```csharp
 services
-    .AddDbContext<ApplicationDbContext>(options =>
-        options
-            .UseMySql(Configuration.GetConnectionString("DefaultConnection"))
+    .AddDbContext<BlogContext>(options =>
+      options
+        .UseMySql(Configuration.GetConnectionString("DefaultConnection"),
+              new MySqlServerVersion(new Version(5, 7)),
+              x => x.MigrationsAssembly("Web"))
     )
     .AddContinuousMigrations<ApplicationDbContext>()
     .AddControllersWithViews();
